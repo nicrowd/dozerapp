@@ -13,7 +13,7 @@ def main():
     st.title("Drinkogniser")
 
     with st.form("user_info_form"):
-        name = st.text_input("Enter your name")
+        name = st.text_input("Specify your name")
         email = st.text_input("Enter your email")
         design_option = st.selectbox("Select your 'drinkorganiser' design", 
                                      ["Design 1", "Design 2", "Design 3", "Design 4"])
