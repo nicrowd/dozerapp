@@ -16,7 +16,7 @@ def main():
         name = st.text_input("Specify your name")
         email = st.text_input("Enter your email")
         design_option = st.selectbox("Select your 'drinkorganiser' design", 
-                                     ["Design 1", "Design 2", "Design 3", "Design 4"])
+                                     ["Wedding", "Birthdays", "Kids Party", "Design 4"])
         selected_color = st.color_picker("Pick a color for the design", '#00f900')
         
         # Form submission
