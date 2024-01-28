@@ -87,91 +87,101 @@ with st.expander(":screwdriver: Watch a Video!"):
     st.video(dozervideo)
 
 
-# Create tabs for different events
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Wedding", 
-                                        "Birthday", 
-                                        "Kids Party", 
-                                        "Conference",
-                                        "Special Launch Event",
-                                  ])
+# # Create tabs for different events
+# tab1, tab2, tab3, tab4, tab5 = st.tabs(["Wedding", 
+#                                         "Birthday", 
+#                                         "Kids Party", 
+#                                         "Conference",
+#                                         "Special Launch Event",
+#                                   ])
 
-# Add content to the Wedding tab
-with tab1:
-    with st.expander("See Design Options"):
-        st.markdown(''':red[Wedding Drinkogniser Design Options]''')
-        design1 = st.select_slider(
-        'Select design options',
-        options=['Design A','Design B','Design C', 'Design D', 'Design E',],key='d1')
-        st.info(f'Your selected {design1}')
+# # Add content to the Wedding tab
+# with tab1:
+#     with st.expander("See Design Options"):
+#         st.markdown(''':red[Wedding Drinkogniser Design Options]''')
+#         design1 = st.select_slider(
+#         'Select design options',
+#         options=['Design A','Design B','Design C', 'Design D', 'Design E',],key='d1')
+#         st.info(f'Your selected {design1}')
 
-# Add content to the Birthday tab
-with tab2:
-    with st.expander("See Design Options"):
-        st.markdown(''':red[Birthday Drinkogniser Design Options]''')
-        design2 = st.select_slider(
-        'Select design options',
-        options=['Design A','Design B','Design C', 'Design D', 'Design E',],key='d2')
-        st.info(f'Your selected {design2}')
+# # Add content to the Birthday tab
+# with tab2:
+#     with st.expander("See Design Options"):
+#         st.markdown(''':red[Birthday Drinkogniser Design Options]''')
+#         design2 = st.select_slider(
+#         'Select design options',
+#         options=['Design A','Design B','Design C', 'Design D', 'Design E',],key='d2')
+#         st.info(f'Your selected {design2}')
 
-# Add content to the Kids Party tab
-with tab3:
-    with st.expander("See Design Options"):
-        st.markdown(''':red[Kids Party Drinkogniser Design Options]''')
-        design3 = st.select_slider(
-        'Select design options',
-        options=['Design A','Design B','Design C', 'Design D', 'Design E',],key='d3')
-        st.info(f'Your selected {design3}')
+# # Add content to the Kids Party tab
+# with tab3:
+#     with st.expander("See Design Options"):
+#         st.markdown(''':red[Kids Party Drinkogniser Design Options]''')
+#         design3 = st.select_slider(
+#         'Select design options',
+#         options=['Design A','Design B','Design C', 'Design D', 'Design E',],key='d3')
+#         st.info(f'Your selected {design3}')
 
-# Add content to the Conference tab
-with tab4:
-    with st.expander("See Design Options"):
-        st.markdown(''':red[Conference Drinkogniser Design Options]''')
-        design4 = st.select_slider(
-        'Select design options',
-        options=['Design A','Design B','Design C', 'Design D', 'Design E',],key='d4')
-        st.info(f'Your selected {design4}')
+# # Add content to the Conference tab
+# with tab4:
+#     with st.expander("See Design Options"):
+#         st.markdown(''':red[Conference Drinkogniser Design Options]''')
+#         design4 = st.select_slider(
+#         'Select design options',
+#         options=['Design A','Design B','Design C', 'Design D', 'Design E',],key='d4')
+#         st.info(f'Your selected {design4}')
 
-# Add content to the Special Launch Event tab
-with tab5:
-    with st.expander("See Design Options"):
-        st.markdown(''':red[Special Launch Drinkogniser Design Options]''')
-        design5 = st.select_slider(
-        'Select design options',
-        options=['Design A','Design B','Design C', 'Design D', 'Design E',],key='d5')
-        st.info(f'Your selected {design5}')
+# # Add content to the Special Launch Event tab
+# with tab5:
+#     with st.expander("See Design Options"):
+#         st.markdown(''':red[Special Launch Drinkogniser Design Options]''')
+#         design5 = st.select_slider(
+#         'Select design options',
+#         options=['Design A','Design B','Design C', 'Design D', 'Design E',],key='d5')
+#         st.info(f'Your selected {design5}')
 
 # User Interaction
 with st.expander(":shopping_trolley: How to Order?"):
-
-    with st.form("user_info_form"):
-        # User input fields
-        name = st.text_input("Specify your name")
-        email = st.text_input("Enter your email")
-        design_option = st.radio("Select your Drinkorganiser design options:", 
-                                 ["Wedding", "Birthday", "Kids Party", "Conference", "Special Launch"])
-        selected_color = st.color_picker("Pick a color for the design", '#0A45E2')
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        if st.button("Proceed to Generic Theme Order"):
+            st.switch_page("pages/01_Order_Generic_Design.py")
+    
+    with col2:
+        if st.button("Proceed to Customised Theme Order"):
+            st.switch_page("pages/02_Order_Customised_Design.py")        
+            
+    # with st.form("user_info_form"):
+    #     # User input fields
+    #     name = st.text_input("Specify your name")
+    #     email = st.text_input("Enter your email")
+    #     design_option = st.radio("Select your Drinkorganiser design options:", 
+    #                              ["Wedding", "Birthday", "Kids Party", "Conference", "Special Launch"])
+    #     selected_color = st.color_picker("Pick a color for the design", '#0A45E2')
         
-        # Slider for the number of tags
-        number_of_tags = st.slider("Number of tags to order", min_value=12, 
-                                   max_value=960, step=12)
+    #     # Slider for the number of tags
+    #     number_of_tags = st.slider("Number of tags to order", min_value=12, 
+    #                                max_value=960, step=12)
 
-        # Submit button - it's always visible but will work only if name and email are entered
-        submitted = st.form_submit_button("Prepare Order")
+    #     # Submit button - it's always visible but will work only if name and email are entered
+    #     submitted = st.form_submit_button("Prepare Order")
 
-        if submitted and name and email:
-            user_data = {
-                        "Name": name,
-                        "Email": email,
-                        "Design": design_option,
-                        "Color": selected_color,
-                        "Number of Tags": number_of_tags
-                    }
-            df = pd.DataFrame([user_data])
-            st.dataframe(df,hide_index=True)
-            st.markdown(get_table_download_link(df),unsafe_allow_html=True)
+    #     if submitted and name and email:
+    #         user_data = {
+    #                     "Name": name,
+    #                     "Email": email,
+    #                     "Design": design_option,
+    #                     "Color": selected_color,
+    #                     "Number of Tags": number_of_tags
+    #                 }
+    #         df = pd.DataFrame([user_data])
+    #         st.dataframe(df,hide_index=True)
+    #         st.markdown(get_table_download_link(df),unsafe_allow_html=True)
         
-        elif submitted:
-            st.error("Please enter your name and email to submit.")
+    #     elif submitted:
+    #         st.error("Please enter your name and email to submit.")
 
 
 
