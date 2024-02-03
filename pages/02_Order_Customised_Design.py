@@ -13,6 +13,19 @@ current_directory = os.getcwd()
 # Define the relative path to the directory containing the images
 
 
+# Function to load images from the specified folder
+def load_images_from_folder(folder):
+    
+    images = []
+    
+    for filename in os.listdir(folder):
+        if filename.endswith(".jpg") or filename.endswith(".png"):
+            img_path = os.path.join(folder, filename)
+            images.append((f"{img_path}/{filename}"))
+            
+    return images
+
+
 def list_files(directory):
     
     image_directory = os.path.join(current_directory, directory)
@@ -36,18 +49,19 @@ def list_files(directory):
     return image_list
 
 
-st.subheader("Custom Design Options")
+st.subheader("Customised Design Options")
 
 # header_image = 'data_orig/Anatomy.png'
 # st.image(header_image, width=450, caption="Design Anatomy")
 
 # Replace 'data_orig/design_icons' with the actual path if different
-dirfront = 'data_orig/front_icons'
-dirback = 'data_orig/back_icons'
-front_list = list_files(dirfront)
-st.info(front_list)
-back_list = list_files(dirback)
-st.info(back_list)
+dirfront = 'pages/data_orig/front_icons'
+dirback = 'pages/data_orig/back_icons'
+# front_list = list_files(dirfront)
+# back_list = list_files(dirback)
+
+front_list = load_images_from_folder(dirfront)
+back_list = load_images_from_folder(dirback)
 
 
 CustomMenu = [
