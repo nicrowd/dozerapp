@@ -21,7 +21,7 @@ def load_images_from_folder(folder):
     for filename in os.listdir(folder):
         if filename.endswith(".jpg") or filename.endswith(".png"):
             img_path = os.path.join(folder, filename)
-            images.append((f"{img_path}/{filename}"))
+            images.append(img_path)
             
     return images
 
@@ -43,25 +43,26 @@ def list_files(directory):
 
     
     # Print the list of image file names
-    for image_name in image_list:
-        print(image_name)
+    # for image_name in image_list:
+    #     print(image_name)
 
     return image_list
 
 
-st.subheader("Customised Design Options")
+st.subheader("Custom Design Options")
 
 # header_image = 'data_orig/Anatomy.png'
 # st.image(header_image, width=450, caption="Design Anatomy")
 
 # Replace 'data_orig/design_icons' with the actual path if different
-dirfront = 'pages/data_orig/front_icons'
-dirback = 'pages/data_orig/back_icons'
-# front_list = list_files(dirfront)
-# back_list = list_files(dirback)
+dirfront =  os.path.join('data_orig','front_icons')
+dirback = os.path.join('data_orig','back_icons')
+front_list = list_files(dirfront)
+back_list = list_files(dirback)
 
-front_list = load_images_from_folder(dirfront)
-back_list = load_images_from_folder(dirback)
+# front_list = load_images_from_folder(dirfront)
+# # st.info(front_list)
+# back_list = load_images_from_folder(dirback)
 
 
 CustomMenu = [
