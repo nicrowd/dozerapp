@@ -45,7 +45,9 @@ st.subheader("Customised Design Options")
 dirfront = 'data_orig/front_icons'
 dirback = 'data_orig/back_icons'
 front_list = list_files(dirfront)
+st.info(front_list)
 back_list = list_files(dirback)
+st.info(back_list)
 
 
 CustomMenu = [
