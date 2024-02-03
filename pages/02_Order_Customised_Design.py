@@ -58,7 +58,7 @@ dirback = os.path.join('pages','data_orig','back_icons')
 #back_list = list_files(dirback)
 #st.info(front_list)
 front_list = load_images_from_folder(dirfront)
-st.info(front_list)
+#st.info(front_list)
 back_list = load_images_from_folder(dirback)
 
 
