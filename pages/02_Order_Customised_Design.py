@@ -36,7 +36,7 @@ def list_files(directory):
     return image_list
 
 
-st.subheader("Customised Design Options")
+st.subheader("Custom Design Options")
 
 # header_image = 'data_orig/Anatomy.png'
 # st.image(header_image, width=450, caption="Design Anatomy")
