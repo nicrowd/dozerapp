@@ -59,7 +59,7 @@ dirback = os.path.join('pages','data_orig','back_icons')
 #st.info(front_list)
 front_list = load_images_from_folder(dirfront)
 st.info(front_list)
-# back_list = load_images_from_folder(dirback)
+back_list = load_images_from_folder(dirback)
 
 
 CustomMenu = [
