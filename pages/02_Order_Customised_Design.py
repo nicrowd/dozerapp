@@ -6,9 +6,6 @@ import os
 
 #  pip install streamlit-image-select
 
-# os.chdir(r"C:\SB\dozer\pages")
-# os.chdir(r"C:\SB\dozer")
-current_directory = os.getcwd()
 
 # Define the relative path to the directory containing the images
 
@@ -55,13 +52,13 @@ st.subheader("Custom Design Options")
 # st.image(header_image, width=450, caption="Design Anatomy")
 
 # Replace 'data_orig/design_icons' with the actual path if different
-dirfront =  os.path.join('data_orig','front_icons')
-dirback = os.path.join('data_orig','back_icons')
-front_list = list_files(dirfront)
-back_list = list_files(dirback)
+dirfront =  os.path.join('pages','data_orig','front_icons')
+dirback = os.path.join('pages','data_orig','back_icons')
+#front_list = list_files(dirfront)
+#back_list = list_files(dirback)
+#st.info(front_list)
+front_list = load_images_from_folder(dirfront)
 st.info(front_list)
-# front_list = load_images_from_folder(dirfront)
-# # st.info(front_list)
 # back_list = load_images_from_folder(dirback)
 
 
